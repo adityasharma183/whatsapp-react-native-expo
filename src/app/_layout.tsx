@@ -1,21 +1,26 @@
-import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
-import { Stack } from 'expo-router'
-import * as SplashScreen from 'expo-splash-screen'
+import React, { useEffect, useState } from "react";
+import { Redirect, Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 
-SplashScreen.preventAutoHideAsync()
+SplashScreen.preventAutoHideAsync();
 
-const RootNavigation = () => {
-  useEffect(()=>{
-    setTimeout(()=>{
+export default function RootNavigation() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
       SplashScreen.hideAsync();
-    },2000)
-  },[])
-  return (
-    <Stack>
-     <Stack.Screen name='index'/>
-    </Stack>
-  )
-}
+      setIsReady(true);
+    }, 1000);
+  }, []);
 
-export default RootNavigation
+  if (!isReady) return null;
+
+  return (
+    <>
+      <Stack screenOptions={{ headerShown: false }} />
+      {isLogin ? <Redirect href="/(main)" /> : <Redirect href="/(auth)" />}
+    </>
+  );
+}
