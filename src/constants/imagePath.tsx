@@ -1,3 +1,6 @@
 export default{
-    logo:require('@/src/assets/images/icon.png')
+    logo:require('@/src/assets/images/icon.png'),
+    welcome:require('@/src/assets/images/welcome2.png')
 };
+
+

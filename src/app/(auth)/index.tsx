@@ -17,7 +17,10 @@ const Auth = () => {
         setTimeout(navigate_to_welcome,3000)
     }
     useEffect(()=>{
-        setTimeout(loading_timeout,2000)
+       const timeout= setTimeout(loading_timeout,2000)
+       return ()=>{
+        clearTimeout(timeout)
+       }
          
     },[])
     
