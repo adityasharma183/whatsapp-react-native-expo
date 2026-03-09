@@ -7,11 +7,12 @@ import ButtonComp from '@/src/components/atoms/ButtonComp';
 import { router } from 'expo-router';
 import OTPInput from "@codsod/react-native-otp-input";
 import { useState } from 'react';
+import { storage } from '@/src/utils/utils';
 
 const Verify_Otp = () => {
   const [otp, setOTP] = useState("");
   let onPress=()=>{
-    
+    storage.set("access_token","abcdefghijk")
    
   }
   let onBack=()=>{
