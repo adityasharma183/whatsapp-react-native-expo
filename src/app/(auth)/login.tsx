@@ -69,7 +69,8 @@ const styles=StyleSheet.create({
     alignItems:'center',
     justifyContent:'space-between',
     paddingVertical:verticalScale(70),
-    paddingHorizontal:scale(50)
+    paddingHorizontal:scale(50),
+    backgroundColor:'beige'
   },
   header:{
     gap:verticalScale(150)
