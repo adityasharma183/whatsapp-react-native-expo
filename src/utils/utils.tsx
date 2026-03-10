@@ -1,3 +1,11 @@
-import { createMMKV } from 'react-native-mmkv'
+import { MMKV } from "react-native-mmkv";
 
-export const storage = createMMKV()
+let storage: MMKV | null = null;
+
+try {
+  storage = new MMKV();
+} catch (e) {
+  console.log("MMKV not available in this runtime");
+}
+
+export { storage };

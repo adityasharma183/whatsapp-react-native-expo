@@ -9,23 +9,20 @@ export default function RootNavigation() {
   const [isLogin, setIsLogin] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
-  const access_token=storage.getString('access_token')
-
   useEffect(() => {
+    const access_token = storage?.getString("access_token");
+
+    console.log("TOKEN:", access_token);
+
+    if (access_token) {
+      setIsLogin(true);
+    }
+
     setTimeout(() => {
       SplashScreen.hideAsync();
       setIsReady(true);
-      
     }, 1000);
   }, []);
-   //check if user is logged in
-  useEffect(()=>{
-    console.log(access_token);
-    if(access_token){
-      setIsLogin(true)
-    }
-    
-  },[access_token])
 
   if (!isReady) return null;
 
